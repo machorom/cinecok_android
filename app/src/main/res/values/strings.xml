@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Cinecok</string>
+    <string name="hint_search_movie">검색할 제목을 입력해 주세요</string>
+
+    <!-- in source code -->
+    <string name="alert_network_error">네트워크 오류</string>
+    <string name="alert_no_input_search">검색어를 입력해 주세요</string>
+
+    <!-- layout label -->
+    <string name="movieitem_director_label">감독 : </string>
+    <string name="movieitem_actor_label">주연 : </string>
+    <string name="search_category_set">검색 카테고리 설정</string>
+    <string name="hint_category_set">특정 카테고리를 검색하고 싶다면</string>
+    <string name="hint_category_set2">카테고리를 체크 하세요</string>
+    <string name="hint_category_set3">최대 1개만 선택 가능 합니다</string>
+    <string name="search_no_result">검색 결과가 없습니다</string>
+    <string name="movie_detail_rating_lable">평점&#160;</string>
+    <string name="movie_detail_pubdate_lable">&#160;/ 개봉&#160;</string>
+    <string name="movie_genre_all">전체</string>
+    <string name="movie_genre_drama">드라마</string>
+    <string name="movie_genre_horror">공포</string>
+    <string name="movie_genre_war">전쟁</string>
+    <string name="movie_genre_adventure">모험</string>
+    <string name="movie_genre_ani">애니</string>
+    <string name="movie_genre_thriller">스릴러</string>
+    <string name="movie_genre_romance">로맨스</string>
+    <string name="movie_genre_action">액션</string>
+    <string name="movie_genre_mutial">무협</string>
+    <string name="movie_genre_musical">뮤지컬</string>
+    <string name="movie_genre_noir">느와르</string>
+    <string name="movie_genre_crime">범죄</string>
+    <string name="movie_genre_sf">SF</string>
+    <string name="movie_rank_ord_reservation">현재 상영 예매순</string>
+    <string name="movie_rank_ord_grade">현재 상영 평점순</string>
+    <string name="movie_rank_ord_scheduled">개봉 예정작</string>
+    <string name="movie_myscrap">나의 스크랩</string>
+    <!-- string for ui test -->
+    <string name="ui_test_movieitem_userrating">9.82</string>
+    <string name="ui_test_movieitem_pubdate">2016</string>
+    <string name="ui_test_movieitem_director">크리스토퍼 놀란</string>
+    <string name="ui_test_movieitem_actor">엠마 스톤, 라이언 고슬링</string>
+    <string name="ui_test_movieitem_title"> 영웅문 : 가나다라마바사 아자차카타하</string>
+    <string name="ui_test_movieitem_description">해리 포터를 테마로 한 최초의 타투 컨벤션 리터러리 잉크
+ 테네시 주에서 개최된 이 컨벤션에 참가하기 위해 전 세계 70여 명 이상의 타투이스트들이 모였다.
+ 해리 포터라는 공통된 관심사로 뭉친 이들이 컨벤션을 개최하기까지의 과정을 담아낸 영화는
+ 타투 컨벤션에 참가한 다양한 타투이스트들의 이야기와 삶, 꿈에 대해 듣는다.</string>
+</resources>

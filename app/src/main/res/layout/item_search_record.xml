@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="binding_list_item"
+            type="com.daou.cinecok.data.localdb.entity.SearchRecordEntitiy" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/layout_search_record"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:padding="12dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_clock_black" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="@{binding_list_item.searchTitle}"
+                android:textColor="@color/darkgray"
+                android:textSize="15dp"
+                tools:text="@string/ui_test_movieitem_title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@{binding_list_item.searchDate}"
+                android:textColor="@color/darkgray"
+                android:textSize="15dp"
+                tools:text="2021/03/11" />
+
+            <ImageButton
+                android:id="@+id/btn_remove_record"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:padding="7dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_cross_black" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0.1dp"
+            android:background="@color/darkgray" />
+
+    </LinearLayout>
+</layout>

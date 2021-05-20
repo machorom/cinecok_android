@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm_search"
+            type="com.daou.cinecok.ui.main.search.SearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_search_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        >
+
+        <org.angmarch.views.NiceSpinner
+            app:entries="@array/nation"
+            android:id="@+id/spinner_movie_nation"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_search_movie"
+            onReturnKeyClick="@{vm_search::loadFirstPage}"
+            onTouch="@{vm_search::loadSearchRecord}"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:hint="@string/hint_search_movie"
+            android:singleLine="true"
+            android:text="@={vm_search.searchQuery}"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            app:layout_constraintLeft_toRightOf="@id/spinner_movie_nation"
+            app:layout_constraintRight_toLeftOf="@id/btn_search_movie"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_search_filter"
+            android:layout_width="35dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:padding="7dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_filter_black"
+            app:layout_constraintBottom_toBottomOf="@id/et_search_movie"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_search_movie"
+            android:layout_width="35dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_search_black"
+            app:layout_constraintBottom_toBottomOf="@id/et_search_movie"
+            app:layout_constraintRight_toLeftOf="@id/btn_search_filter"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line_searchview"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/divider_view_gradient_white_gray"
+            app:layout_constraintTop_toBottomOf="@id/et_search_movie" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_result"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbarSize="3dp"
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_searchview"
+            listData="@{vm_search.searchedMovieList}"
+            onScrollEndListener="@{vm_search::loadNextPage}"
+            tools:listitem="@layout/item_search_movie" />
+
+        <LinearLayout
+            android:id="@+id/layout_no_result_search"
+            bVisiblity="@{vm_search.showNotExistSearchResult}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line_searchview"
+            tools:visibility="invisible">
+
+            <ImageView
+                android:layout_width="105dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_not_exist_black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/search_no_result"
+                android:textColor="@color/darkgray"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_search_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@id/spinner_movie_nation">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_search_record"
+                listData="@{vm_search.searchRecordList}"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:scrollbarSize="3dp"
+                android:scrollbarThumbVertical="@android:color/darker_gray"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_search_record" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@drawable/divider_record_gradient" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

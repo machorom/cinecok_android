@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="binding_list_item"
+            type="com.daou.cinecok.data.model.MovieData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:layout_margin="5dp"
+            android:id="@+id/iv_movie_image"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            tools:src="@drawable/ic_noimg"
+            app:bind_preview_image="@{binding_list_item.imgURL}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:singleLine="true"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/iv_movie_image"
+            app:layout_constraintTop_toTopOf="@id/iv_movie_image"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:text="@{binding_list_item.title}"
+            tools:text="@string/ui_test_movieitem_title" />
+
+        <RatingBar
+            android:id="@+id/ratingbar_movie_item"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.1"
+            app:layout_constraintLeft_toLeftOf="@id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
+            android:rating="@{binding_list_item.ratingStar}"
+            tools:rating="4.3" />
+
+        <TextView
+            android:id="@+id/tv_movie_pubdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="@id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/ratingbar_movie_item"
+            android:textSize="14dp"
+            android:textColor="@color/darkgray"
+            android:text="@{binding_list_item.pubDate}"
+            tools:text="@string/ui_test_movieitem_pubdate"
+            />
+        <TextView
+            android:id="@+id/tv_movie_director_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movieitem_director_label"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="@id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_pubdate"
+            android:textColor="@color/darkgray"
+            />
+        <TextView
+            android:id="@+id/tv_movie_director"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@{binding_list_item.director}"
+            tools:text="@string/ui_test_movieitem_director"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_movie_director_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_pubdate"
+            android:textSize="14dp"
+            android:textColor="@color/darkgray"
+            android:singleLine="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_movie_actor_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_director_label"
+            android:text="@string/movieitem_actor_label"
+            android:textSize="14dp"
+            android:textColor="@color/darkgray"
+            />
+        <TextView
+            android:id="@+id/tv_movie_actor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tv_movie_actor_label"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_director_label"
+            android:text="@{binding_list_item.actor}"
+            tools:text="@string/ui_test_movieitem_actor"
+            android:textSize="14dp"
+            android:textColor="@color/darkgray"
+            android:singleLine="true"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

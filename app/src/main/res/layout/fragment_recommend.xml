@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm_recommend"
+            type="com.daou.cinecok.ui.main.home.screening.ScreeningViewModel" />
+    </data>
+    <androidx.recyclerview.widget.RecyclerView
+        listData="@{vm_recommend.recommendMovieList}"
+        android:id="@+id/rv_recommend_movie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/item_scrap_movie"/>
+
+</layout>

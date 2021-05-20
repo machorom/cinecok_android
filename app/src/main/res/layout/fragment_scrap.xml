@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm_scrap"
+            type="com.daou.cinecok.ui.main.scrap.ScrapViewModel" />
+    </data>
+
+    <LinearLayout
+        android:background="@color/darkgray"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:text="@string/movie_myscrap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:background="@color/daouoffice_blue"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_favorite_movie"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_scrap_movie"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            listData="@{vm_scrap.favoriteMovieList}"
+            >
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+</layout>
