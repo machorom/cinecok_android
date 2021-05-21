@@ -9,6 +9,7 @@ import com.daou.cinecok.ui.main.scrap.ScrapViewModel
 import com.daou.cinecok.ui.main.search.SearchViewModel
 import com.daou.cinecok.ui.main.search.dialog.GenreSelectViewModel
 import com.daou.cinecok.ui.main.search.dialog.MovieDetailViewModel
+import com.daou.cinecok.ui.main.theator.TheatorViewModel
 import com.daou.cinecok.utils.AppConstants
 import com.daou.cinecok.utils.AppConstants.HEADER_KEY_NAVER_ID
 import com.daou.cinecok.utils.AppConstants.HEADER_KEY_NAVER_SECRET
@@ -74,6 +75,9 @@ val repositoryModule = module {
     }
     viewModel{
         ScreeningViewModel(get())
+    }
+    viewModel {
+        TheatorViewModel(get())
     }
 
     //리포지토리 모듈 아님 .. 분리고민

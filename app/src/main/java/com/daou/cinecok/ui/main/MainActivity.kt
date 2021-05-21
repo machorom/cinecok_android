@@ -9,6 +9,7 @@ import com.daou.cinecok.databinding.ActivityMainBinding
 import com.daou.cinecok.ui.main.home.HomeFragment
 import com.daou.cinecok.ui.main.scrap.ScrapFragment
 import com.daou.cinecok.ui.main.search.SearchFragment
+import com.daou.cinecok.ui.main.theator.TheatorFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             addFragment(HomeFragment())
             addFragment(SearchFragment())
             addFragment(ScrapFragment())
+            addFragment(TheatorFragment())
         }
 
         binding.apply{
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_home -> vpMain.setCurrentItem(0, false)
                     R.id.navigation_search -> vpMain.setCurrentItem(1, false)
                     R.id.navigation_scrap -> vpMain.setCurrentItem(2, false)
+                    R.id.navigation_theator -> vpMain.setCurrentItem(3, false)
                 }
 
                 true
