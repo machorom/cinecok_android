@@ -17,8 +17,8 @@
         />
 
     <item
-        android:id="@+id/navigation_theator"
-        android:icon="@drawable/ic_theator"
-        android:title="@string/menu_theator"
+        android:id="@+id/navigation_theater"
+        android:icon="@drawable/ic_theater"
+        android:title="@string/menu_theater"
         />
 </menu>

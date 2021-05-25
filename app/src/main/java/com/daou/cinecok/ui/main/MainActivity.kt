@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.daou.cinecok.R
@@ -19,7 +18,7 @@ import com.daou.cinecok.databinding.ActivityMainBinding
 import com.daou.cinecok.ui.main.home.HomeFragment
 import com.daou.cinecok.ui.main.scrap.ScrapFragment
 import com.daou.cinecok.ui.main.search.SearchFragment
-import com.daou.cinecok.ui.main.theator.TheatorFragment
+import com.daou.cinecok.ui.main.theater.TheaterFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             addFragment(HomeFragment())
             addFragment(SearchFragment())
             addFragment(ScrapFragment())
-            addFragment(TheatorFragment())
+            addFragment(TheaterFragment())
         }
 
         binding.apply{
@@ -52,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_home -> vpMain.setCurrentItem(0, false)
                     R.id.navigation_search -> vpMain.setCurrentItem(1, false)
                     R.id.navigation_scrap -> vpMain.setCurrentItem(2, false)
-                    R.id.navigation_theator -> {
+                    R.id.navigation_theater -> {
                         permitAndMove()
                     }
                 }

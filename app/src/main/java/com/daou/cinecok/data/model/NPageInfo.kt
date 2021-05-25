@@ -1,7 +1,7 @@
 package com.daou.cinecok.data.model
 
 
-data class PageInfo(
+data class NPageInfo(
     var searchStartIdx: Int,
     var searchNextStartIdx: Int,
     var searchMaxIdx: Int

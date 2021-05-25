@@ -1,7 +1,6 @@
 package com.daou.cinecok.data.repository
 
 import android.content.res.Resources
-import android.util.Log
 import com.daou.cinecok.data.localdb.AppDatabase
 import com.daou.cinecok.data.localdb.entity.ScrapMovieEntitiy
 import com.daou.cinecok.data.localdb.entity.SearchRecordEntitiy
@@ -10,8 +9,8 @@ import com.daou.cinecok.data.restapi.NSearchAPI
 import com.daou.cinecok.data.restapi.NSearchMovieRequest
 import com.daou.cinecok.data.model.MovieRepoNAPIResult
 import com.daou.cinecok.data.model.MovieRepoResult
-import com.daou.cinecok.data.model.PageInfo
-import com.daou.cinecok.data.repository.MovieRepository.ResponseFlag
+import com.daou.cinecok.data.model.NPageInfo
+import com.daou.cinecok.data.restapi.ResponseFlag
 import com.daou.cinecok.utils.CineUtils
 import org.jsoup.Jsoup
 import java.io.IOException
@@ -30,12 +29,6 @@ interface MovieRepository {
     suspend fun getHighQualityImageURL( link : String) : String
     suspend fun getRecommendMovieList( link : String) : List<MovieData>
     suspend fun getScheduledMovieList() : List<MovieData>
-
-    enum class ResponseFlag {
-        NO_RESULT,
-        SUCCESS,
-        CONNECT_FAIL
-    }
 }
 
 
@@ -75,7 +68,7 @@ class MovieRepositoryImpl(private val searchAPI : NSearchAPI, private val appDB 
 
 
     override suspend fun getMovieList( request : NSearchMovieRequest) : MovieRepoNAPIResult<List<MovieData>> {
-        val pageInfo = PageInfo(0,0,0)
+        val pageInfo = NPageInfo(0,0,0)
         val responseList : MutableList<MovieData> = mutableListOf()
         lateinit var responseFlag : ResponseFlag
 

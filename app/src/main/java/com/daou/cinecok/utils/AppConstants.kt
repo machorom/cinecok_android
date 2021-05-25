@@ -8,4 +8,8 @@ object AppConstants {
 
     val HEADER_KEY_NAVER_SECRET = "X-Naver-Client-Secret"
     val HEADER_KEY_NAVER_ID = "X-Naver-Client-Id"
+
+    val KAKAO_API_URL =  "https://dapi.kakao.com/"
+    val HEADER_KEY_KAKAO_AUTH = "Authorization"
+    val KAKAO_API_SECRET = "KakaoAK 0049236fee0c5af58d2ed2fbbcf18272"
 }
