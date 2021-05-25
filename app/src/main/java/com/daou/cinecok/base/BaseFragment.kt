@@ -47,8 +47,11 @@ abstract class BaseFragment<T : ViewDataBinding>() : Fragment() {
                         if(!loadingDialog.isAdded)
                             loadingDialog.show(it.supportFragmentManager, "")
                     }
-                } else
-                    loadingDialog.dismiss()
+                } else {
+                    if (loadingDialog.isVisible) {
+                        loadingDialog.dismiss()
+                    }
+                }
             })
 
 

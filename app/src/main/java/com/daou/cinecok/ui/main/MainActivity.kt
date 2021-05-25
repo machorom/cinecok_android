@@ -1,7 +1,17 @@
 package com.daou.cinecok.ui.main
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.daou.cinecok.R
@@ -33,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         binding.apply{
             //스와이프 막음 -> navigationBottom으로만 작동하도록.
             vpMain.isUserInputEnabled = false
+            // TODO Temp Page Limit
+            vpMain.offscreenPageLimit = 4
             vpMain.adapter = vpAdapter
 
             navigationBottomMain.setOnNavigationItemSelectedListener { menuItem->
