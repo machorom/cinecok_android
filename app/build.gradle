@@ -93,4 +93,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
     implementation 'org.jsoup:jsoup:1.12.2'
+
+    //daumMap
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

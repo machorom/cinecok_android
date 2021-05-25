@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private var vpAdapter = MainVPAdapter(this)
 
+    val locationReqCode = 100
+
     private fun initDataBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.lifecycleOwner = this
@@ -38,7 +40,9 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_home -> vpMain.setCurrentItem(0, false)
                     R.id.navigation_search -> vpMain.setCurrentItem(1, false)
                     R.id.navigation_scrap -> vpMain.setCurrentItem(2, false)
-                    R.id.navigation_theator -> vpMain.setCurrentItem(3, false)
+                    R.id.navigation_theator -> {
+                        permitAndMove()
+                    }
                 }
 
                 true
@@ -46,6 +50,56 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun permitAndMove() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            when {
+                ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED -> {
+                    binding.vpMain.setCurrentItem(3, false)
+                }
+                shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
+                    Toast.makeText(this, "해주세요", Toast.LENGTH_SHORT).show()
+                    Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(Uri.parse("package:$packageName"))
+                        .apply {
+                            startActivity(this);
+                        }
+                }
+                else -> {
+                    // You can directly ask for the permission.
+                    ActivityCompat.requestPermissions(
+                        this,
+                        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                        locationReqCode
+                    )
+                }
+            }
+        } else {
+            binding.vpMain.setCurrentItem(3, false)
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            locationReqCode -> {
+                if ((grantResults.isNotEmpty() &&
+                            grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                ) {
+                    permitAndMove()
+                } else {
+                    Toast.makeText(this, "해주세용 TT", Toast.LENGTH_SHORT).show()
+                }
+                return
+            }
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
