@@ -43,7 +43,9 @@ class TheaterViewModel(private val repository: TheaterRepository): BaseViewModel
     }
     val crrViewType: LiveData<Int> = _crrViewType
 
-    private val _flagRefresh = MutableLiveData<Boolean>().apply { false }
+    private val _flagRefresh = MutableLiveData<Boolean>().apply {
+        value = false
+    }
     val flagRefresh: LiveData<Boolean> = _flagRefresh
 
     fun loadPage() {
