@@ -3,16 +3,22 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black"
-        android:title="홈"
+        android:title="@string/menu_home"
     />
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/ic_search_black"
-        android:title="검색"
+        android:title="@string/menu_search"
         />
     <item
         android:id="@+id/navigation_scrap"
         android:icon="@drawable/ic_scrap_black"
-        android:title="스크랩"
+        android:title="@string/menu_scrap"
+        />
+
+    <item
+        android:id="@+id/navigation_theater"
+        android:icon="@drawable/ic_theater"
+        android:title="@string/menu_theater"
         />
 </menu>

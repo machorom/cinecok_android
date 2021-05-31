@@ -7,9 +7,9 @@ import com.daou.cinecok.R
 import com.daou.cinecok.base.BaseViewModel
 import com.daou.cinecok.data.localdb.entity.SearchRecordEntitiy
 import com.daou.cinecok.data.model.MovieData
-import com.daou.cinecok.data.model.PageInfo
+import com.daou.cinecok.data.model.NPageInfo
 import com.daou.cinecok.data.repository.MovieRepository
-import com.daou.cinecok.data.repository.MovieRepository.ResponseFlag.*
+import com.daou.cinecok.data.restapi.ResponseFlag.*
 import com.daou.cinecok.data.restapi.NSearchMovieRequest
 import com.daou.cinecok.ui.main.search.dialog.GenreSelectDlg.OnGenreSelectedListener.*
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +26,7 @@ class SearchViewModel(private val repository: MovieRepository) : BaseViewModel()
     val searchRecordList : LiveData<MutableList<SearchRecordEntitiy>> = _searchRecordList
     val searchQuery : MutableLiveData<String> = MutableLiveData()
     private var genreCode = GenreCode.ENTIRE
-    private var pageInfo = PageInfo(0, 1, 0)
+    private var pageInfo = NPageInfo(0, 1, 0)
     private var selectedFilterNation : String = "전체"
 
     init {

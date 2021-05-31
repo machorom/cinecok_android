@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ViewModel -->
+    <data>
+
+        <variable
+            name="vm_theater"
+            type="com.daou.cinecok.ui.main.theater.TheaterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- List Type -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_theater_result"
+            listData="@{vm_theater.theaterList}"
+            onScrollEndListener="@{vm_theater::loadPage}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbarSize="3dp"
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Map Type -->
+        <com.daou.cinecok.ui.main.theater.MapContainer
+            android:id="@+id/map_container"
+            markerData="@{vm_theater.theaterList}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f00"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btn_update_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:onClick="@{()->vm_theater.onUpdateLoaction(true)}"
+                android:text="위치갱신" />
+
+        </com.daou.cinecok.ui.main.theater.MapContainer>
+
+        <!-- Button Change Mode -->
+        <Button
+            android:id="@+id/btn_change_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:onClick="@{()->vm_theater.onChangeMode()}"
+            android:text="@string/change_mode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

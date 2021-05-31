@@ -44,4 +44,12 @@
  테네시 주에서 개최된 이 컨벤션에 참가하기 위해 전 세계 70여 명 이상의 타투이스트들이 모였다.
  해리 포터라는 공통된 관심사로 뭉친 이들이 컨벤션을 개최하기까지의 과정을 담아낸 영화는
  타투 컨벤션에 참가한 다양한 타투이스트들의 이야기와 삶, 꿈에 대해 듣는다.</string>
+
+    <!-- menu name -->
+    <string name="menu_home">홈</string>
+    <string name="menu_search">검색</string>
+    <string name="menu_scrap">스크랩</string>
+    <string name="menu_theater">영화관</string>
+
+    <string name="change_mode">뷰 전환</string>
 </resources>

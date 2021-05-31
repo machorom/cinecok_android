@@ -1,5 +1,6 @@
 package com.daou.cinecok.ui.main.search
 
+import android.util.Log
 import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -42,6 +43,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
 
     override fun initDataBinding() {
+        Log.d("TAG", "initDataBinding: viewModel ${viewModel}")
         binding.vmSearch = viewModel
     }
 
